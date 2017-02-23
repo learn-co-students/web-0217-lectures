@@ -7,4 +7,4 @@
   require_all('app/')
 
   # sinatra
-  set(:database, {adapter: "sqlite3", database: "spiders.sqlite3"})
+set :database, {adapter: "sqlite3", database: "spiders.sqlite3"}
