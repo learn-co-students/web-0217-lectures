@@ -25,6 +25,18 @@ id | name |
 
 # Write your answer here.
 
+#customer
+id | name |
+
+#owner
+id | name | review_id | restaurant_id
+
+#restaurant
+id | name | review_id
+
+#review
+id | title | customer_id
+
 # 2. As a second step, please fill in the stubbed out methods in the respective model.
 # Customer#reviews
 # Owner#restaurants
