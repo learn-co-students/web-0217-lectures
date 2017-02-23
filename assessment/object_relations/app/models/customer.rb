@@ -5,7 +5,7 @@ class Customer
 
   def initialize(name)
     @name = name
-    @@all < self
+    @@all << self
   end
 
   def self.find_by_name(name)
