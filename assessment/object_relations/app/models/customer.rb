@@ -15,6 +15,7 @@ class Customer
   end
 
   def add_review
+#     nice method.
     restaurant = add_restaurant(restaurant_name)
     review = Review.new(customer: self, restaurant: restaurant)
     restaurant.customers << self
