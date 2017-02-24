@@ -1,7 +1,7 @@
 class ApplicationController < Sinatra::Base
   set :views, 'app/views'
   get '/users' do
-    users = User.all
+    @users = User.all
     erb(:index)
 
     # <html>
@@ -11,8 +11,36 @@ class ApplicationController < Sinatra::Base
     # Response.new(['200', 'content/html', 'html'])
   end
 
-  get '/foo' do
-    @users = 'something else'
+  get '/users/new' do
+    erb :new
+  end
+
+  post '/users' do
+    new_user = User.create(params)
+    new_user.save
+    redirect to '/users'
+  end
+
+  get '/users/:id' do
+    @user = User.find(params[:id])
+    erb :show
+  end
+
+  get '/users/:id/edit' do
+    @user = User.find(params[:id])
+    erb :edit
+  end
+
+  patch 'users/:id' do
+    user = User.find(params[:id])
+    user.update(params)
+    redirect to "/users/#{user.id}"
+  end
+
+  delete '/users/:id' do
+    user = User.find(params[:id])
+    user.delete
+    redirect to "/users"
   end
 
   # def erb(file)
