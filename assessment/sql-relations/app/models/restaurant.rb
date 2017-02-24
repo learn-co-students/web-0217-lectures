@@ -12,6 +12,12 @@ class Restaurant
   attr_accessor(*self.public_attributes)  
   attr_reader :id
 
-  def owner
+  def owners
+    sql = <<-SQL
+      SELECT owners.* FROM owners
+      INNER JOIN restaurants ON restaurants.owner_id = owner.id
+      WHERE restaurants.name = ?
+    SQL
+    self.class.db.execute(sql, ATTRIBUTES["name"])
   end
 end

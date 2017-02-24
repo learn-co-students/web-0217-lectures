@@ -1,7 +1,7 @@
 require 'pry'
 class Player
   attr_reader :name
-
+  
   @@all = []
   # def initialize(name)
   #   @name = name
