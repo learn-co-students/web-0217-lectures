@@ -23,12 +23,14 @@ class Customer
   			return customer
   		end
   	end
+# 	  prefer use of the find methd.
   end
   
   def add_review(review, res_name)
     restaurant = add_restaurant(res_name)
     review = Review.new(self,restaurant)
     reviews << restaurant
+# 	  ok.  mistook restaurant fro review.
   end
   
   def add_restaurant(name)
