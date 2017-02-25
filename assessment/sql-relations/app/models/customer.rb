@@ -15,7 +15,7 @@ class Customer
   def reviews
     sql = "SELECT reviews FROM restaurants
     INNER JOIN restaurants ON restaurants.reviews_id = reviews.id
-    WHERE restaurants.reviews_id = ?"
+   reviews.customer_id = ?
     sql.db.execute(sql, self.id)
   end
 
