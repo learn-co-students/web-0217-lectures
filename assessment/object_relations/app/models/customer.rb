@@ -14,16 +14,15 @@ class Customer
   end
 
   def self.find_by_name(name)
-    customers_array = @@cutomers
-    customers_array.find do |customer|
-      if customer.name == name
-        customer.name
-      end
+  
+    self.all.find do |customer|
+       customer.name == name
     end
   end
 
-  def self.add_review
-    new_review = Review.new(customer)
+  def self.add_review(text, restaurant)
+    new_review = Review.new(text, self, restaurant)
+#     to add the customer, need to refer to it by self.
     @reviews << new_review
   end
 
