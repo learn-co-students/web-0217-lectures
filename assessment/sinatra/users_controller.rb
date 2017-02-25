@@ -7,7 +7,10 @@ class UsersController < ApplicationController
 
   # create
   def create
-    @user.save
+#     params = {name: 'bob', hometown: 'philly'}
+#    @user =  User.create(params)
+#     @user.save
+    redirect "/users/#{@user.id}"
   end
 
   # index
@@ -18,6 +21,7 @@ class UsersController < ApplicationController
   # show
   def show
     @user = User.find_by_id(params[:id])
+#     render :show
   end
 
   # edit
