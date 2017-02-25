@@ -21,6 +21,7 @@ class Restaurant
   end
 
   def self.customers
+#     not sure about this method.
     if Customer.exists?
       return customer.review
     end
