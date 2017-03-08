@@ -2,3 +2,19 @@
 
 <!-- Write out all of the appropriate html for a user who goes to the form to create a new user -->
 <!-- Imagine that a user both a name and a hometown -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Please Enter A New User</h1>
+    <form action="/users/new" method="post">
+      <input type="text" name="name">
+      <input type="text" name="hometown">
+      <input type="submit" value="submit">
+    </form>
+  </body>
+</html>
