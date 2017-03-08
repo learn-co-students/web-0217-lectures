@@ -1,5 +1,46 @@
+require 'pry'
 class Customer
+	attr_accessor :name, :reviews
+	#has_many :reviews
+	#has_many :restaurants, through: :reviews
 
+  @@all = []
+
+  def initialize(name)
+  	@name = name
+  	@reviews = []
+  	@restaurants = []
+  	@@all << self
+  end
+
+  def self.all
+    @@all
+  end
+
+  def self.find_by_name(name)
+  	self.all.each do |customer|
+  		if customer.name == name
+  			return customer
+  		end
+  	end
+# 	  prefer use of the find methd.
+  end
+  
+  def add_review(review, res_name)
+    restaurant = add_restaurant(res_name)
+    review = Review.new(self,restaurant)
+    reviews << restaurant
+# 	  ok.  mistook restaurant fro review.
+  end
+  
+  def add_restaurant(name)
+    restaurant = Restaurant.new(name)
+    restaurants << restaurant
+  end
+  # Customer#add_review
+
+  # Customer#add_restaurant
+  # binding.pry
 end
 
 
