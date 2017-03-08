@@ -6,9 +6,14 @@ class Owner
     name: "TEXT",
   }
 
-  attr_accessor(*self.public_attributes)  
+  attr_accessor(*self.public_attributes)
   attr_reader :id
 
   def restaurants
+#     good use of the method here.
+    sql = "SELECT owner FROM restaurants
+    INNER JOIN owner ON restaurants.owner_id = owner.id
+    WHERE restaurants.owner_id = ?"
+    sql.db.execute(sql, self.id)
   end
 end
